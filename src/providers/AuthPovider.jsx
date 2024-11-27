@@ -3,10 +3,11 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext(null);
 
 const AuthPovider = ({ children }) => {
   const auth = getAuth(app);
@@ -19,7 +20,10 @@ const AuthPovider = ({ children }) => {
   };
 
   // login user
-  
+  const login =  (email,password) =>{
+    return signInWithEmailAndPassword(auth,email,password);
+  }
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -29,13 +33,13 @@ const AuthPovider = ({ children }) => {
     });
 
     return () => {
-      unsubscribe();
+      return unsubscribe();
     };
   }, []);
 
   const authInfo = {
-    name: "shakil",
     createUser,
+    login,
     loading,
   };
 

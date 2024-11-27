@@ -40,12 +40,14 @@ const Login = () => {
 
             {/* Navigate login page */}
             <label className="label-text-alt label mx-auto">
-                Have an account?
-                <Link className="text-primary" to={"/signup"}>
+              Have an account?
+              <Link className="text-primary" to={"/signup"}>
                 &nbsp;Sign In
-                </Link>
+              </Link>
             </label>
           </form>
+            <div className="divider">Or</div>
+            <button className="btn btn-accent">Connect with Google</button>
         </div>
       </div>
     </div>

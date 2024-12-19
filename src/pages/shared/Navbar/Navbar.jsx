@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const navList = (
@@ -11,6 +11,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="login">Login</NavLink>
+      </li>
+      <li>
+        <NavLink to="addItem">Add</NavLink>
       </li>
     </>
   );
@@ -48,7 +51,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navList}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to={'/dashboard'}>
+        <button className="btn">Dashboard</button>
+        </Link>
       </div>
     </div>
   );
